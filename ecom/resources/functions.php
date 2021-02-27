@@ -2,6 +2,33 @@
 
 //helper functions
 
+function set_message($msg){
+
+if(!empty($msg)){
+
+$_SESSION['message'] = $msg;
+
+}else{
+
+$msg = "";
+
+}
+
+
+}
+
+function display_message(){
+
+  if(isset($_SESSION['message'])){
+
+   echo $_SESSION['message'];
+   unset($_SESSION['message']);
+
+  }
+
+
+}
+
 function redirect($location){
 header("Location: $location");
 }
@@ -159,10 +186,12 @@ confirm($query);
 
 if(mysqli_num_rows($query) == 0){
 
+set_message("Your Password or Username are wrong");
 redirect("login.php");
 
 }else{
 
+set_message("Welcome to Admin {$username}");  
 redirect("admin");  
 
 }
