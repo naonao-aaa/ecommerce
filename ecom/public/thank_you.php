@@ -16,7 +16,7 @@ $query = query("INSERT INTO orders(order_amount, order_transaction, order_status
 
 confirm($query);
 
-
+session_destroy();
 
 }else{
    
