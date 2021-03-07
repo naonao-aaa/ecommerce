@@ -31,7 +31,11 @@
 
             }
 
+            if(isset($_GET['orders'])){
 
+                include(TEMPLATE_BACK . "/orders.php");
+
+            }
             
             ?>
 
