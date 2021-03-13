@@ -267,7 +267,7 @@ echo $orders;
 
 }
 
-/********* Admin Products **************/
+/********* Admin Products Page **************/
 
 function get_products_in_admin(){
 
@@ -276,14 +276,16 @@ function get_products_in_admin(){
   
   while($row=fetch_array($query)){
     
+  $category = show_product_category_title($row['product_category_id']);
+
 $product = <<<DELIMETER
   
 <tr>
   <td>{$row['product_id']}</td>
   <td>{$row['product_title']}<br>
-  <a href="index.php?edit_product&id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+  <a href="index.php?edit_product&id={$row['product_id']}"><img src="../../resources/uploads/{$row['product_image']}"  alt=""></a>
   </td>
-  <td>Category</td>
+  <td>{$category}</td>
   <td>{$row['product_price']}</td>
   <td>{$row['product_quantity']}</td>
   <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
@@ -299,6 +301,21 @@ DELIMETER;
 }
 
 
+function show_product_category_title($product_category_id){
+
+$category_query = query("SELECT * FROM categories WHERE cat_id = '{$product_category_id}'");
+confirm($category_query);
+
+while($category_row = fetch_array($category_query)){
+
+ return $category_row['cat_title'];
+
+}
+
+}
+
+
+
 /*************Add Products in admin************/
 
 
@@ -312,8 +329,8 @@ $product_price          = escape_string($_POST['product_price']);
 $product_description    = escape_string($_POST['product_description']);
 $short_desc             = escape_string($_POST['short_desc']);
 $product_quantity       = escape_string($_POST['product_quantity']);
-$product_image          = escape_string($_FILES['file']['name']);
-$image_temp_location    = escape_string($_FILES['file']['tmp_name']);
+$product_image          = $_FILES['file']['name'];
+$image_temp_location    = $_FILES['file']['tmp_name'];
 
 move_uploaded_file($image_temp_location, UPLOAD_DIRECTORY . DS . $product_image);
 
@@ -330,6 +347,24 @@ redirect("index.php?products");
 }
 
 
+}
+
+function show_categories_add_product_page(){
+
+$query = query("SELECT * FROM categories");
+confirm($query);
+  
+while($row = fetch_array($query)){
+    
+$category_options = <<<DELIMETER
+  
+<option value="{$row['cat_id']}">{$row['cat_title']}</option>
+  
+DELIMETER;
+  
+echo $category_options;
+  
+}
 }
 
 
