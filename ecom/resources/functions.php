@@ -1,5 +1,7 @@
 <?php
 
+$upload_directory = "uploads";
+
 //helper functions
 
 function last_id(){
@@ -75,12 +77,14 @@ $query = query("SELECT *FROM products");
 confirm($query);
 
 while($row=fetch_array($query)){
+
+$product_image = display_image($row['product_image']);  
   
 $product = <<<DELIMETER
 
 <div class="col-sm-4 col-lg-4 col-md-4">
 <div class="thumbnail">
-    <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
+    <a href="item.php?id={$row['product_id']}"><img src="../resources/{$product_image}" alt=""></a>
     <div class="caption">
         <h4 class="pull-right">&#36;{$row['product_price']}</h4>
         <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
@@ -269,6 +273,19 @@ echo $orders;
 
 /********* Admin Products Page **************/
 
+function display_image($picture){
+
+global $upload_directory;  
+
+return $upload_directory . DS . $picture;
+
+}
+
+
+
+
+
+
 function get_products_in_admin(){
 
   $query = query("SELECT *FROM products");  
@@ -278,12 +295,14 @@ function get_products_in_admin(){
     
   $category = show_product_category_title($row['product_category_id']);
 
+  $product_image = display_image($row['product_image']);
+
 $product = <<<DELIMETER
   
 <tr>
   <td>{$row['product_id']}</td>
   <td>{$row['product_title']}<br>
-  <a href="index.php?edit_product&id={$row['product_id']}"><img src="../../resources/uploads/{$row['product_image']}"  alt=""></a>
+  <a href="index.php?edit_product&id={$row['product_id']}"><img width='100' src="../../resources/{$product_image}"  alt=""></a>
   </td>
   <td>{$category}</td>
   <td>{$row['product_price']}</td>
