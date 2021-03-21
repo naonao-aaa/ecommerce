@@ -55,6 +55,12 @@ redirect("../../public");
                 include(TEMPLATE_BACK . "/edit_product.php");
 
             }
+
+            if(isset($_GET['users'])) {
+    
+                include(TEMPLATE_BACK . "/users.php");
+                
+            }
             
             ?>
 
