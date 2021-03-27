@@ -13,7 +13,7 @@
         
     </p>
 
-    <a href="add_user.php" class="btn btn-primary">Add User</a>
+    <a href="index.php?add_user" class="btn btn-primary">Add User</a>
 
 
     <div class="col-md-12">
