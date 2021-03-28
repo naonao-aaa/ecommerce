@@ -74,6 +74,12 @@ redirect("../../public");
                 
             }
             
+            if(isset($_GET['reports'])) {
+    
+                include(TEMPLATE_BACK . "/reports.php");
+                
+            }
+
             ?>
 
             </div>
