@@ -576,7 +576,7 @@ $report = <<<DELIMETER
   <td>{$row['product_price']}</td>
   <td>{$row['product_title']}
   <td>{$row['product_quantity']}</td>
-  <td><a class="btn btn-danger" href="../../resources/templates/back/delete_product.php?id={$row['product_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
+  <td><a class="btn btn-danger" href="../../resources/templates/back/delete_report.php?id={$row['report_id']}"><span class="glyphicon glyphicon-remove"></span></a></td>
 </tr>
   
 DELIMETER;
