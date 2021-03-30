@@ -17,7 +17,7 @@ if(isset($_GET['add'])){
 
  }else{
 
-  set_message("We only have " . $row['product_quantity']  . " " ."{$row['product_title']} " . "available");
+  set_message("" ."{$row['product_title']} " . "在庫について " . $row['product_quantity']  . " のみとなっております");
   redirect("../public/checkout.php");
 
  }

@@ -142,7 +142,7 @@ $product = <<<DELIMETER
                         <h3>{$row['product_title']}</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                         <p>
-                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
+                            <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">今すぐ買う!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">情報</a>
                         </p>
                     </div>
                 </div>
@@ -175,7 +175,7 @@ $product = <<<DELIMETER
                       <h3>{$row['product_title']}</h3>
                       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                       <p>
-                          <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">Buy Now!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">More Info</a>
+                          <a href="../resources/cart.php?add={$row['product_id']}" class="btn btn-primary">今すぐ買う!</a> <a href="item.php?id={$row['product_id']}" class="btn btn-default">情報</a>
                       </p>
                   </div>
               </div>
