@@ -37,7 +37,7 @@ while($row=fetch_array($query)):
     <div class="caption-full">
         <h4><a href="#"><?php echo $row['product_title'];?></a> </h4>
         <hr>
-        <h4 class=""><?php echo "&yen;" . $row['product_price']; ?></h4>
+        <h4 class=""><?php echo "&#36;" . $row['product_price']; ?></h4>
 
     <div class="ratings">
      
